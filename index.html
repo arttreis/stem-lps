@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubra seu protocolo Stem — Quiz de Rotina</title>
+  <meta name="description" content="5 perguntas sobre sua rotina. Protocolo de suplementação personalizado. Gratuito.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://quiz.loja.stem.com.br">
+  <meta property="og:title" content="Como a Stem se encaixa na sua rotina?">
+  <meta property="og:description" content="Descubra qual protocolo Stem foi feito para o seu estilo de vida.">
+  <meta property="og:url" content="https://quiz.loja.stem.com.br">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    // TODO: Substituir pelo Pixel ID real
+    // fbq('init', 'SEU_PIXEL_ID_AQUI');
+    // fbq('track', 'PageView');
+  </script>
+
+  <!-- Google Tag -->
+  <!-- TODO: Substituir pelo ID real do Google Tag -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=SEU_ID_AQUI"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'SEU_ID_AQUI');
+  </script>
+  -->
+
+  <style>
+    /* ============================================
+       STEM Quiz — "Clinical Blue" Identity
+       Based on glp1-suporte-stem.vercel.app
+       ============================================ */
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #008dd2;
+      --primary-hover: #0077b3;
+      --primary-glow: rgba(0, 141, 210, 0.2);
+      --primary-light: rgba(0, 141, 210, 0.06);
+
+      --forest: #0f2d4a;
+      --forest-mid: #163d62;
+      --sage: #4a6d8c;
+      --sage-light: #7a9cb8;
+
+      --sand: #f6f1eb;
+      --sand-dark: #ede5db;
+      --warm-white: #fffefb;
+      --cream: #fdfcfa;
+
+      --gold: #ffcd57;
+      --gold-dark: #e6b84d;
+
+      --ink: #1a1c20;
+      --ink-secondary: #454a52;
+      --ink-muted: #747a84;
+      --ink-faint: #a0a5ad;
+
+      --border: rgba(0, 141, 210, 0.08);
+      --border-strong: rgba(0, 141, 210, 0.15);
+
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --s1: 0.25rem; --s2: 0.5rem; --s3: 0.75rem; --s4: 1rem;
+      --s5: 1.25rem; --s6: 1.5rem; --s8: 2rem; --s10: 2.5rem;
+      --s12: 3rem; --s16: 4rem; --s20: 5rem;
+
+      --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-2xl: 32px; --r-pill: 200px;
+
+      --shadow-subtle: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-sm: 0 2px 8px rgba(15, 45, 74, 0.06);
+      --shadow-md: 0 4px 24px rgba(15, 45, 74, 0.08);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --t-fast: 150ms; --t-base: 300ms; --t-slow: 500ms;
+    }
+
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--forest);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    ::selection { background: var(--primary); color: #fff; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Grain */
+    .grain {
+      position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat; background-size: 256px 256px;
+    }
+
+    /* Background orbs */
+    .quiz-bg {
+      position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+    }
+    .quiz-bg__orb {
+      position: absolute; border-radius: 50%; filter: blur(80px);
+    }
+    .quiz-bg__orb--1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,141,210,0.15) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      animation: float-orb 12s ease-in-out infinite;
+    }
+    .quiz-bg__orb--2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(255,205,87,0.06) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      animation: float-orb 16s ease-in-out infinite reverse;
+    }
+    @keyframes float-orb {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(20px, -30px) scale(1.05); }
+      66% { transform: translate(-15px, 15px) scale(0.97); }
+    }
+
+    /* Quiz container */
+    .quiz {
+      position: relative; z-index: 1;
+      max-width: 640px; margin: 0 auto;
+      padding: var(--s6);
+      min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    /* Progress bar */
+    .progress {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(15, 45, 74, 0.5); backdrop-filter: blur(12px);
+      padding: var(--s3) var(--s6);
+      display: none;
+    }
+    .progress.visible { display: block; }
+    .progress__label {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.14em; color: rgba(255,255,255,0.5);
+      margin-bottom: var(--s2); text-align: center;
+    }
+    .progress__track {
+      height: 3px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;
+    }
+    .progress__fill {
+      height: 100%; background: var(--primary); border-radius: 3px;
+      width: 0%; transition: width 500ms cubic-bezier(.4,0,.2,1);
+    }
+
+    /* Screens */
+    .screen {
+      display: none; opacity: 0;
+      transform: translateX(24px);
+    }
+    .screen.active {
+      display: block; opacity: 1; transform: translateX(0);
+      animation: slideIn 300ms var(--ease-out);
+    }
+    .screen.exiting {
+      animation: slideOut 200ms ease-in forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(24px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideOut {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(-24px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Screen 0 — Intro */
+    .intro { text-align: center; }
+    .intro__badge {
+      display: inline-flex; align-items: center; gap: var(--s2);
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--sage-light); margin-bottom: var(--s8);
+    }
+    .intro__badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .intro__title {
+      font-family: var(--font-serif); font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;
+      color: var(--warm-white); margin-bottom: var(--s5);
+    }
+    .intro__title em { color: var(--gold); font-style: italic; }
+    .intro__subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.55); line-height: 1.7;
+      max-width: 440px; margin: 0 auto var(--s10);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--s3);
+      font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem;
+      letter-spacing: 0.01em; border: none; border-radius: var(--r-pill);
+      padding: 0.875rem 2rem; cursor: pointer;
+      transition: all var(--t-base) var(--ease-out);
+      text-align: center; line-height: 1; position: relative;
+    }
+    .btn--primary {
+      background: var(--primary); color: var(--warm-white);
+      box-shadow: 0 2px 12px var(--primary-glow), var(--shadow-subtle);
+    }
+    .btn--primary:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 4px 24px var(--primary-glow), var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .btn--primary:active { transform: translateY(0); }
+    .btn--primary:disabled, .btn--primary.disabled {
+      opacity: 0.35; pointer-events: none; cursor: not-allowed;
+    }
+    .btn--lg { padding: 1rem 2.5rem; font-size: 1rem; }
+    .btn--secondary {
+      background: transparent; color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.15); padding: 0.65rem 1.5rem; font-size: 0.85rem;
+    }
+    .btn--secondary:hover { color: var(--warm-white); border-color: rgba(255,255,255,0.3); }
+    .btn--loading .btn__text { visibility: hidden; }
+    .btn--loading::after {
+      content: ''; position: absolute;
+      width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Proof items */
+    .intro__proof {
+      display: flex; flex-direction: column; gap: var(--s2);
+      align-items: center; margin-top: var(--s8);
+    }
+    .intro__proof-item {
+      display: inline-flex; align-items: center; gap: var(--s2);
+      font-size: 0.8rem; color: rgba(255,255,255,0.35);
+    }
+    .intro__proof-item svg { color: var(--sage-light); flex-shrink: 0; }
+
+    /* Question header */
+    .q-header {
+      font-family: var(--font-serif); font-weight: 400;
+      font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.15;
+      color: var(--warm-white); margin-bottom: var(--s8);
+      text-align: center;
+    }
+
+    /* Grid 2x2 */
+    .grid-2x2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4);
+    }
+    @media (max-width: 480px) {
+      .grid-2x2 { grid-template-columns: 1fr; }
+    }
+
+    /* Option card */
+    .opt-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--r-xl); padding: var(--s6);
+      cursor: pointer; position: relative;
+      transition: all var(--t-base) var(--ease-out);
+    }
+    .opt-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    .opt-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .opt-card.selected .opt-card__check { transform: scale(1); opacity: 1; }
+    .opt-card__icon { font-size: 1.6rem; margin-bottom: var(--s3); }
+    .opt-card__title {
+      font-weight: 600; font-size: 0.95rem;
+      color: var(--warm-white); margin-bottom: var(--s1);
+    }
+    .opt-card__desc {
+      font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.5;
+    }
+    .opt-card__check {
+      position: absolute; top: var(--s3); right: var(--s3);
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--primary); display: flex;
+      align-items: center; justify-content: center;
+      transform: scale(0.6); opacity: 0;
+      transition: all var(--t-base) var(--ease-spring);
+    }
+    .opt-card__check svg { width: 12px; height: 12px; color: #fff; }
+
+    /* Pills (multi-select) */
+    .pills { display: flex; flex-wrap: wrap; gap: var(--s3); justify-content: center; }
+    .pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-pill); padding: 0.6rem 1.2rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.7);
+      cursor: pointer; transition: all var(--t-base) var(--ease-out);
+      user-select: none;
+    }
+    .pill:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .pill.selected {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--warm-white);
+    }
+
+    /* Vertical list */
+    .vlist { display: flex; flex-direction: column; gap: var(--s3); }
+    .vlist-item {
+      display: flex; align-items: center; gap: var(--s4);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--r-lg); padding: var(--s4) var(--s5);
+      cursor: pointer; transition: all var(--t-base) var(--ease-out);
+    }
+    .vlist-item:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .vlist-item.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .vlist-item__icon { font-size: 1.3rem; flex-shrink: 0; }
+    .vlist-item__text { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .vlist-item.selected .vlist-item__text { color: var(--warm-white); }
+
+    /* Next button wrapper */
+    .nav-btn { text-align: center; margin-top: var(--s8); }
+
+    /* Email capture */
+    .capture { text-align: center; }
+    .capture__title {
+      font-family: var(--font-serif); font-weight: 400;
+      font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.15;
+      color: var(--warm-white); margin-bottom: var(--s3);
+    }
+    .capture__sub {
+      font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: var(--s8);
+    }
+    .capture__form { max-width: 380px; margin: 0 auto; }
+    .capture__field {
+      display: block; width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-md); padding: 0.85rem var(--s4);
+      font-family: var(--font-sans); font-size: 0.95rem;
+      color: var(--warm-white); outline: none;
+      transition: border-color var(--t-fast);
+      margin-bottom: var(--s3);
+    }
+    .capture__field::placeholder { color: rgba(255,255,255,0.3); }
+    .capture__field:focus { border-color: var(--primary); }
+    .capture__legal {
+      font-size: 0.7rem; color: rgba(255,255,255,0.3);
+      margin-top: var(--s4);
+    }
+
+    /* Result screen */
+    .result { animation: fadeUp 400ms var(--ease-out); }
+    .result__badge {
+      display: inline-flex; align-items: center; gap: var(--s2);
+      background: var(--primary-light); border: 1px solid rgba(0,141,210,0.15);
+      border-radius: var(--r-pill); padding: 0.4rem 1rem;
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--primary);
+      margin-bottom: var(--s5);
+    }
+    .result__title {
+      font-family: var(--font-serif); font-weight: 400;
+      font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1;
+      color: var(--warm-white); margin-bottom: var(--s2);
+    }
+    .result__tagline {
+      font-size: 1rem; color: rgba(255,255,255,0.55);
+      margin-bottom: var(--s2); font-style: italic;
+    }
+    .result__context {
+      font-size: 0.8rem; color: rgba(255,255,255,0.3);
+      margin-bottom: var(--s8);
+    }
+
+    /* Moment box */
+    .moment-box {
+      background: rgba(0,141,210,0.08); border: 1px solid rgba(0,141,210,0.15);
+      border-radius: var(--r-xl); padding: var(--s5) var(--s6);
+      margin-bottom: var(--s8); display: flex; gap: var(--s4); align-items: flex-start;
+    }
+    .moment-box__icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .moment-box__text { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+
+    /* Product list */
+    .products { margin-bottom: var(--s8); }
+    .products__title {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--primary); margin-bottom: var(--s4);
+    }
+    .product-item {
+      display: flex; gap: var(--s4); align-items: flex-start;
+      padding: var(--s4) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .product-item:last-child { border-bottom: none; }
+    .product-item__marker {
+      width: 4px; height: 100%; min-height: 40px;
+      border-radius: 4px; flex-shrink: 0;
+    }
+    .product-item__marker--1 { background: var(--primary); }
+    .product-item__marker--2 { background: var(--gold); }
+    .product-item__marker--3 { background: var(--sage-light); }
+    .product-item__name {
+      font-weight: 600; font-size: 0.9rem; color: var(--warm-white);
+      margin-bottom: 2px;
+    }
+    .product-item__benefit {
+      font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.5;
+    }
+    .product-item__line {
+      display: inline-block; font-size: 0.6rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4);
+      padding: 2px 8px; border-radius: var(--r-pill); margin-top: var(--s1);
+    }
+
+    /* Coupon */
+    .coupon-box {
+      background: rgba(0,141,210,0.06); border: 1px solid rgba(0,141,210,0.12);
+      border-radius: var(--r-xl); padding: var(--s6);
+      text-align: center; margin-bottom: var(--s8);
+    }
+    .coupon-box__label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: var(--s3);
+    }
+    .coupon-box__code {
+      font-family: var(--font-sans); font-size: 1.5rem; font-weight: 700;
+      letter-spacing: 0.08em; color: var(--primary);
+      background: rgba(0,141,210,0.1); border-radius: var(--r-md);
+      padding: var(--s3) var(--s6); display: inline-block; margin-bottom: var(--s2);
+    }
+    .coupon-box__validity {
+      font-size: 0.7rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* CTA section */
+    .result__cta { text-align: center; margin-top: var(--s6); }
+    .result__cta .btn { margin-bottom: var(--s3); }
+    .result__restart {
+      display: inline-block; font-size: 0.8rem;
+      color: rgba(255,255,255,0.4); cursor: pointer;
+      transition: color var(--t-fast);
+    }
+    .result__restart:hover { color: rgba(255,255,255,0.7); }
+
+    /* Footer */
+    .quiz-footer {
+      text-align: center; padding: var(--s8) 0 var(--s4);
+      font-size: 0.7rem; color: rgba(255,255,255,0.15);
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .intro__proof { flex-direction: row; gap: var(--s6); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="quiz-bg" aria-hidden="true">
+    <div class="quiz-bg__orb quiz-bg__orb--1"></div>
+    <div class="quiz-bg__orb quiz-bg__orb--2"></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress" id="progress">
+    <div class="progress__label" id="progressLabel">Pergunta 1 de 5</div>
+    <div class="progress__track"><div class="progress__fill" id="progressFill"></div></div>
+  </div>
+
+  <main class="quiz">
+
+    <!-- TELA 0 — Entrada -->
+    <section class="screen active" data-screen="0">
+      <div class="intro">
+        <div class="intro__badge">
+          <span class="intro__badge-dot"></span>
+          Quiz de Rotina
+        </div>
+        <h1 class="intro__title">
+          Descubra como a Stem se encaixa na <em>sua rotina</em>
+        </h1>
+        <p class="intro__subtitle">5 perguntas. Protocolo personalizado. Gratuito.</p>
+        <button class="btn btn--primary btn--lg" onclick="startQuiz()">
+          <span class="btn__text">Começar agora</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5m0 0L9.75 4.5M14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="intro__proof">
+          <div class="intro__proof-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Registro ANVISA</span>
+          </div>
+          <div class="intro__proof-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Produção farmacêutica própria</span>
+          </div>
+          <div class="intro__proof-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Baseado em evidência clínica</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 1 — P1 Estilo de vida -->
+    <section class="screen" data-screen="1">
+      <h2 class="q-header">Como você descreveria seu dia a dia?</h2>
+      <div class="grid-2x2" data-question="p1">
+        <div class="opt-card" data-value="A" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">💻</div>
+          <div class="opt-card__title">Trabalho intenso</div>
+          <div class="opt-card__desc">Foco, tela, reuniões. Pouco tempo para mim.</div>
+        </div>
+        <div class="opt-card" data-value="B" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🏃</div>
+          <div class="opt-card__title">Rotina ativa</div>
+          <div class="opt-card__desc">Treino, movimento e performance fazem parte do meu dia.</div>
+        </div>
+        <div class="opt-card" data-value="C" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🏠</div>
+          <div class="opt-card__title">Cuido da casa e da família</div>
+          <div class="opt-card__desc">Minha energia vai toda para os outros.</div>
+        </div>
+        <div class="opt-card" data-value="D" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🔀</div>
+          <div class="opt-card__title">Mistura de tudo</div>
+          <div class="opt-card__desc">Cada dia é um dia. Não tenho rotina fixa.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 2 — P2 Pico de desgaste -->
+    <section class="screen" data-screen="2">
+      <h2 class="q-header">Quando seu corpo mais pede atenção?</h2>
+      <div class="grid-2x2" data-question="p2">
+        <div class="opt-card" data-value="A" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🌅</div>
+          <div class="opt-card__title">De manhã</div>
+          <div class="opt-card__desc">Acordo sem energia. O dia começa pesado.</div>
+        </div>
+        <div class="opt-card" data-value="B" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🕒</div>
+          <div class="opt-card__title">À tarde</div>
+          <div class="opt-card__desc">Depois do almoço, concentração e disposição caem.</div>
+        </div>
+        <div class="opt-card" data-value="C" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🌙</div>
+          <div class="opt-card__title">À noite</div>
+          <div class="opt-card__desc">Corpo cansado, mente acelerada. Difícil desligar.</div>
+        </div>
+        <div class="opt-card" data-value="D" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">💪</div>
+          <div class="opt-card__title">Depois do treino</div>
+          <div class="opt-card__desc">Recuperação lenta. Dor muscular frequente.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 3 — P3 Cuidado atual (multi) -->
+    <section class="screen" data-screen="3">
+      <h2 class="q-header">O que você já faz pela sua saúde?</h2>
+      <div class="pills" data-question="p3">
+        <span class="pill" data-value="treino" onclick="togglePill(this)">Treino regularmente</span>
+        <span class="pill" data-value="alimentacao" onclick="togglePill(this)">Cuido da alimentação</span>
+        <span class="pill" data-value="sono" onclick="togglePill(this)">Tenho boa rotina de sono</span>
+        <span class="pill" data-value="medico" onclick="togglePill(this)">Faço acompanhamento médico</span>
+        <span class="pill" data-value="construindo" onclick="togglePill(this)">Ainda estou construindo esses hábitos</span>
+      </div>
+      <div class="nav-btn">
+        <button class="btn btn--primary" id="btnP3" onclick="goToScreen(4)" disabled>Próxima</button>
+      </div>
+    </section>
+
+    <!-- TELA 4 — P4 O que proteger -->
+    <section class="screen" data-screen="4">
+      <h2 class="q-header">Nos próximos meses, o que você mais quer cuidar?</h2>
+      <div class="grid-2x2" data-question="p4">
+        <div class="opt-card" data-value="A" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">✨</div>
+          <div class="opt-card__title">Minha pele, cabelo e como me vejo</div>
+          <div class="opt-card__desc">Firmeza, hidratação, aparência.</div>
+        </div>
+        <div class="opt-card" data-value="B" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">⚡</div>
+          <div class="opt-card__title">Minha energia e imunidade</div>
+          <div class="opt-card__desc">Disposição, menos gripes, menos cansaço.</div>
+        </div>
+        <div class="opt-card" data-value="C" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🏆</div>
+          <div class="opt-card__title">Minha performance e resultados</div>
+          <div class="opt-card__desc">Treino, força, recuperação, foco.</div>
+        </div>
+        <div class="opt-card" data-value="D" onclick="selectSingle(this)">
+          <div class="opt-card__check"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="opt-card__icon">🌿</div>
+          <div class="opt-card__title">Minha saúde a longo prazo</div>
+          <div class="opt-card__desc">Articulações, longevidade, envelhecer bem.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 5 — P5 Horário -->
+    <section class="screen" data-screen="5">
+      <h2 class="q-header">Como você prefere incluir um suplemento no seu dia?</h2>
+      <div class="vlist" data-question="p5">
+        <div class="vlist-item" data-value="A" onclick="selectSingle(this)">
+          <span class="vlist-item__icon">☕</span>
+          <span class="vlist-item__text">Com o café da manhã, sem complicação</span>
+        </div>
+        <div class="vlist-item" data-value="B" onclick="selectSingle(this)">
+          <span class="vlist-item__icon">🥗</span>
+          <span class="vlist-item__text">Com a refeição principal do dia</span>
+        </div>
+        <div class="vlist-item" data-value="C" onclick="selectSingle(this)">
+          <span class="vlist-item__icon">🏋️</span>
+          <span class="vlist-item__text">Antes ou depois do treino</span>
+        </div>
+        <div class="vlist-item" data-value="D" onclick="selectSingle(this)">
+          <span class="vlist-item__icon">🌙</span>
+          <span class="vlist-item__text">À noite, como ritual de cuidado</span>
+        </div>
+        <div class="vlist-item" data-value="E" onclick="selectSingle(this)">
+          <span class="vlist-item__icon">🤷</span>
+          <span class="vlist-item__text">Ainda não tenho horário definido</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 6 — Captura email -->
+    <section class="screen" data-screen="6">
+      <div class="capture">
+        <h2 class="capture__title">Quase lá. Onde enviamos seu protocolo?</h2>
+        <p class="capture__sub">Sem spam. Cancele quando quiser.</p>
+        <div class="capture__form">
+          <input type="text" class="capture__field" id="inputName" placeholder="Seu nome" autocomplete="given-name" oninput="validateCapture()">
+          <input type="email" class="capture__field" id="inputEmail" placeholder="Seu melhor e-mail" autocomplete="email" oninput="validateCapture()">
+          <button class="btn btn--primary btn--lg" id="btnSubmit" onclick="submitLead()" disabled style="width:100%">
+            <span class="btn__text">Ver meu protocolo</span>
+          </button>
+          <p class="capture__legal">Sem spam. Cancele quando quiser.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 7 — Resultado -->
+    <section class="screen" data-screen="7">
+      <div class="result" id="resultContent">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <div class="quiz-footer">
+      STEM Pharmaceutical &middot; Registro ANVISA &middot; Produção própria
+    </div>
+  </main>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // ── CONFIG ──
+    var RD_ENDPOINT = ''; // TODO: URL da RD Station
+    var RD_TOKEN = ''; // TODO: Bearer token
+
+    // ── STATE ──
+    var state = { screen: 0, answers: {}, name: '', email: '' };
+
+    // ── PROTOCOLS ──
+    var protocols = {
+      beauty: {
+        name: 'Protocolo Pele e Beleza Ativa',
+        tagline: 'Ciência para quem cuida de dentro para fora',
+        slug: 'protocolo_beauty',
+        coupon: 'BEAUTY10',
+        products: [
+          { name: 'Colágeno Hidrolisado VERISOL®', benefit: 'Firmeza e elasticidade da pele', line: 'Beauty' },
+          { name: 'HialuSkin Ácido Hialurônico 150mg', benefit: 'Hidratação profunda', line: 'Beauty' },
+          { name: 'Biotina Plus', benefit: 'Cabelo, pele e unhas', line: 'Nutrition' }
+        ],
+        moments: {
+          A: 'Tome com o café da manhã. 30 dias para sentir a diferença na textura da pele.',
+          B: 'Inclua na refeição principal. A absorção do colágeno é potencializada com vitamina C.',
+          D: 'Faça do momento noturno um ritual. Colágeno + hialurônico antes de dormir.',
+          default: 'Escolha um horário fixo por dia. Consistência é o que gera resultado.'
+        },
+        tags: ['protocolo_beauty', 'cluster_nunca', 'origem_quiz', 'lead_qualificado']
+      },
+      saude: {
+        name: 'Protocolo Energia e Imunidade',
+        tagline: 'Suporte diário para quem não pode parar',
+        slug: 'protocolo_saude',
+        coupon: 'SAUDE10',
+        products: [
+          { name: 'Triple Ômega 3-6-9 1000mg', benefit: 'Anti-inflamatório e saúde cardiovascular', line: 'Nutrition' },
+          { name: 'Zinco 29,59mg', benefit: 'Defesa imunológica e energia celular', line: 'Nutrition' },
+          { name: 'Complexo B', benefit: 'Suporte ao sistema nervoso e imunidade', line: 'Nutrition' }
+        ],
+        moments: {
+          A: 'Com o café da manhã. Ômega 3 tem melhor absorção com gordura boa.',
+          B: 'Com o almoço ou jantar. Zinco é melhor absorvido longe de laticínios.',
+          D: 'À noite, o Complexo B apoia a recuperação enquanto você dorme.',
+          default: 'Qualquer refeição serve. O importante é criar o hábito.'
+        },
+        tags: ['protocolo_saude', 'cluster_nunca', 'origem_quiz', 'lead_qualificado']
+      },
+      performance: {
+        name: 'Protocolo Performance e Recuperação',
+        tagline: 'Para quem treina com intenção e quer resultado real',
+        slug: 'protocolo_performance',
+        coupon: 'PERF10',
+        products: [
+          { name: 'Creatina em Pó', benefit: 'Força, potência e recuperação muscular', line: 'Performance' },
+          { name: 'Cafeína TERMO 200mg', benefit: 'Energia e foco antes do treino', line: 'Performance' },
+          { name: 'Triple Ômega 3-6-9 1000mg', benefit: 'Anti-inflamação e recuperação pós-treino', line: 'Nutrition' }
+        ],
+        moments: {
+          C: 'Cafeína 30min antes do treino. Creatina logo depois, com água. Ômega com a refeição.',
+          A: 'Creatina no café da manhã. Cafeína antes do treino. Ômega no almoço.',
+          default: 'Cafeína pré-treino, creatina pós-treino, ômega na refeição principal.'
+        },
+        tags: ['protocolo_performance', 'cluster_nunca', 'origem_quiz', 'lead_qualificado']
+      },
+      longevidade: {
+        name: 'Protocolo Longevidade Ativa',
+        tagline: 'Para quem pensa no longo prazo e quer continuar ativo',
+        slug: 'protocolo_longevidade',
+        coupon: 'LONG10',
+        products: [
+          { name: 'Coenzima Q10 e Colágeno', benefit: 'Energia celular e saúde articular', line: 'Clinical' },
+          { name: 'Dimagnésio Malato + Vitamina K2 (MK-7)', benefit: 'Ossos, músculos e mobilidade', line: 'Clinical' },
+          { name: 'Óleo de Linhaça 1000mg', benefit: 'Saúde cardiovascular e anti-inflamação', line: 'Nutrition' }
+        ],
+        moments: {
+          A: 'Com o café da manhã. Q10 tem melhor absorção com refeição gordurosa.',
+          B: 'Com o almoço ou jantar. Todos esses ativos se beneficiam da refeição.',
+          D: 'Dimagnésio à noite potencializa o sono e a recuperação muscular.',
+          default: 'Distribua ao longo do dia. Q10 pela manhã, magnésio à noite.'
+        },
+        tags: ['protocolo_longevidade', 'cluster_nunca', 'origem_quiz', 'lead_qualificado']
+      }
+    };
+
+    var p1Labels = { A: 'trabalho intenso', B: 'rotina ativa', C: 'cuidados com a família', D: 'rotina mista' };
+
+    // ── TRACKING ──
+    function trackEvent(name, params) {
+      try {
+        if (typeof gtag === 'function') gtag('event', name, params || {});
+        if (typeof fbq === 'function') fbq('trackCustom', name, params || {});
+      } catch(e) {}
+      console.log('[Quiz Event]', name, params || {});
+    }
+
+    // ── NAVIGATION ──
+    window.startQuiz = function() {
+      trackEvent('quiz_start');
+      goToScreen(1);
+    };
+
+    window.goToScreen = function(n) {
+      var current = document.querySelector('.screen.active');
+      if (!current) return;
+
+      current.classList.add('exiting');
+      current.classList.remove('active');
+
+      setTimeout(function() {
+        current.classList.remove('exiting');
+        current.style.display = 'none';
+
+        var next = document.querySelector('[data-screen="' + n + '"]');
+        next.style.display = 'block';
+        // Force reflow
+        void next.offsetWidth;
+        next.classList.add('active');
+
+        state.screen = n;
+        updateProgress(n);
+
+        if (n >= 1 && n <= 5) {
+          trackEvent('quiz_q' + (n - 1 > 0 ? (n - 1) : '') + '_complete');
+        }
+      }, 200);
+    };
+
+    function updateProgress(n) {
+      var prog = document.getElementById('progress');
+      var label = document.getElementById('progressLabel');
+      var fill = document.getElementById('progressFill');
+
+      if (n >= 1 && n <= 5) {
+        prog.classList.add('visible');
+        label.textContent = 'Pergunta ' + n + ' de 5';
+        fill.style.width = (n * 20) + '%';
+      } else if (n === 6) {
+        prog.classList.add('visible');
+        label.textContent = 'Quase lá';
+        fill.style.width = '100%';
+      } else {
+        prog.classList.remove('visible');
+      }
+    }
+
+    // ── SINGLE SELECT ──
+    window.selectSingle = function(el) {
+      var parent = el.closest('[data-question]') || el.parentElement;
+      var siblings = parent.querySelectorAll('.opt-card, .vlist-item');
+      siblings.forEach(function(s) { s.classList.remove('selected'); });
+      el.classList.add('selected');
+
+      var question = parent.dataset.question;
+      var value = el.dataset.value;
+      state.answers[question] = value;
+
+      // Auto-advance after delay
+      setTimeout(function() {
+        var screenNum = parseInt(el.closest('.screen').dataset.screen);
+        goToScreen(screenNum + 1);
+        if (screenNum >= 1 && screenNum <= 5) {
+          trackEvent('quiz_q' + screenNum + '_complete');
+        }
+      }, 400);
+    };
+
+    // ── MULTI SELECT (PILLS) ──
+    window.togglePill = function(el) {
+      el.classList.toggle('selected');
+      var parent = el.closest('[data-question]');
+      var selected = parent.querySelectorAll('.pill.selected');
+      var values = [];
+      selected.forEach(function(s) { values.push(s.dataset.value); });
+      state.answers.p3 = values;
+
+      var btn = document.getElementById('btnP3');
+      btn.disabled = values.length === 0;
+    };
+
+    // ── EMAIL VALIDATION ──
+    window.validateCapture = function() {
+      var name = document.getElementById('inputName').value.trim();
+      var email = document.getElementById('inputEmail').value.trim();
+      var valid = name.length >= 2 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      document.getElementById('btnSubmit').disabled = !valid;
+    };
+
+    // ── SUBMIT LEAD ──
+    window.submitLead = function() {
+      var btn = document.getElementById('btnSubmit');
+      if (btn.disabled) return;
+
+      state.name = document.getElementById('inputName').value.trim();
+      state.email = document.getElementById('inputEmail').value.trim();
+
+      btn.classList.add('btn--loading');
+      btn.disabled = true;
+
+      trackEvent('quiz_email_submitted');
+
+      var protocol = getProtocol();
+
+      // Send to RD Station
+      if (RD_ENDPOINT) {
+        var payload = {
+          name: state.name,
+          email: state.email,
+          tags: protocol.tags,
+          custom_fields: {
+            protocolo_interesse: protocol.name,
+            estilo_vida: state.answers.p1 || '',
+            pico_desgaste: state.answers.p2 || '',
+            objetivo_saude: state.answers.p4 || '',
+            horario_preferido: state.answers.p5 || ''
+          }
+        };
+
+        var controller = new AbortController();
+        var timeout = setTimeout(function() { controller.abort(); }, 5000);
+
+        fetch(RD_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + RD_TOKEN
+          },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        })
+        .then(function(r) { clearTimeout(timeout); return r.json(); })
+        .then(function(data) { console.log('[RD Station] OK', data); })
+        .catch(function(err) {
+          console.error('[RD Station] Error', { erro: err.message, nome: state.name, email: state.email, protocolo: protocol.slug, timestamp: new Date().toISOString() });
+          // Retry once after 10s
+          setTimeout(function() {
+            fetch(RD_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + RD_TOKEN },
+              body: JSON.stringify(payload)
+            }).catch(function(e) { console.error('[RD Station] Retry failed', e.message); });
+          }, 10000);
+        });
+      } else {
+        console.log('[RD Station] Endpoint não configurado. Payload:', {
+          name: state.name, email: state.email, tags: protocol.tags,
+          custom_fields: { protocolo_interesse: protocol.name, estilo_vida: state.answers.p1, pico_desgaste: state.answers.p2, objetivo_saude: state.answers.p4, horario_preferido: state.answers.p5 }
+        });
+      }
+
+      // Show result after short delay (don't block on API)
+      setTimeout(function() {
+        btn.classList.remove('btn--loading');
+        showResult(protocol);
+      }, 800);
+    };
+
+    // ── ALGORITHM ──
+    function getProtocol() {
+      var p1 = state.answers.p1;
+      var p2 = state.answers.p2;
+      var p4 = state.answers.p4;
+
+      var key = 'saude'; // default
+
+      if (p4 === 'A') key = 'beauty';
+      else if (p4 === 'B') key = 'saude';
+      else if (p4 === 'C') key = 'performance';
+      else if (p4 === 'D') key = 'longevidade';
+
+      // Tiebreakers
+      if (p4 === 'D' && p1 === 'B' && p2 === 'D') key = 'performance';
+      if (p4 === 'B' && p1 === 'A' && p2 === 'B') key = 'saude'; // already saude, just reinforcing
+
+      return protocols[key];
+    }
+
+    // ── SHOW RESULT ──
+    function showResult(protocol) {
+      var p5 = state.answers.p5 || 'default';
+      var moment = protocol.moments[p5] || protocol.moments.default;
+      var p1Label = p1Labels[state.answers.p1] || 'sua rotina';
+
+      var productsHTML = protocol.products.map(function(p, i) {
+        return '<div class="product-item">' +
+          '<div class="product-item__marker product-item__marker--' + (i + 1) + '"></div>' +
+          '<div>' +
+            '<div class="product-item__name">' + p.name + '</div>' +
+            '<div class="product-item__benefit">' + p.benefit + '</div>' +
+            '<span class="product-item__line">' + p.line + '</span>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      var html =
+        '<div class="result__badge">Seu protocolo ideal</div>' +
+        '<h2 class="result__title">' + protocol.name + '</h2>' +
+        '<p class="result__tagline">' + protocol.tagline + '</p>' +
+        '<p class="result__context">Baseado na sua rotina de ' + p1Label + '</p>' +
+
+        '<div class="moment-box">' +
+          '<span class="moment-box__icon">🕐</span>' +
+          '<div class="moment-box__text">' + moment + '</div>' +
+        '</div>' +
+
+        '<div class="products">' +
+          '<div class="products__title">Produtos do protocolo</div>' +
+          productsHTML +
+        '</div>' +
+
+        '<div class="coupon-box">' +
+          '<div class="coupon-box__label">Seu desconto exclusivo de primeira compra:</div>' +
+          '<div class="coupon-box__code">' + protocol.coupon + '</div>' +
+          '<div class="coupon-box__validity">Válido por 7 dias a partir de hoje</div>' +
+        '</div>' +
+
+        '<div class="result__cta">' +
+          '<a href="https://loja.stem.com.br" class="btn btn--primary btn--lg" onclick="trackEvent(\'quiz_cta_clicked\', {protocol_name: \'' + protocol.slug + '\'})" target="_blank">' +
+            '<span class="btn__text">Ver protocolo na loja →</span>' +
+          '</a><br>' +
+          '<span class="result__restart" onclick="restartQuiz()">Refazer o diagnóstico</span>' +
+        '</div>';
+
+      document.getElementById('resultContent').innerHTML = html;
+      goToScreen(7);
+      trackEvent('quiz_result_viewed', { protocol_name: protocol.slug });
+    }
+
+    // ── RESTART ──
+    window.restartQuiz = function() {
+      state = { screen: 0, answers: {}, name: '', email: '' };
+      document.querySelectorAll('.opt-card, .vlist-item, .pill').forEach(function(el) {
+        el.classList.remove('selected');
+      });
+      document.getElementById('inputName').value = '';
+      document.getElementById('inputEmail').value = '';
+      document.getElementById('btnSubmit').disabled = true;
+      document.getElementById('btnP3').disabled = true;
+      goToScreen(0);
+    };
+
+    // Expose trackEvent globally for onclick
+    window.trackEvent = trackEvent;
+
+  })();
+  </script>
+
+</body>
+</html>
