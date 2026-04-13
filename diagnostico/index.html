@@ -466,18 +466,22 @@ a{text-decoration:none;color:inherit}
 }
 .product-row{
   background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r-lg);padding:16px 20px;
-  display:flex;gap:14px;align-items:flex-start;
-  margin-bottom:8px;transition:all .3s var(--ease);
+  border-radius:var(--r-xl);padding:16px 20px;
+  display:flex;gap:16px;align-items:center;
+  margin-bottom:10px;transition:all .3s var(--ease);
 }
 .product-row:last-child{margin-bottom:0}
-.product-row:hover{box-shadow:var(--shadow-xs);border-color:rgba(0,141,210,.1)}
-.product-row__dot{
-  width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0;
+.product-row:hover{box-shadow:var(--shadow-sm);border-color:rgba(0,141,210,.12);transform:translateY(-1px)}
+.product-row__img{
+  width:64px;height:64px;border-radius:var(--r-lg);
+  background:var(--cream);border:1px solid var(--border);
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
 }
-.product-row__dot--1{background:var(--stem-blue)}
-.product-row__dot--2{background:var(--sage)}
-.product-row__dot--3{background:#e6a54a}
+.product-row__img img{
+  width:100%;height:100%;object-fit:contain;
+  mix-blend-mode:multiply;
+}
 .product-row__name{font-weight:600;font-size:.88rem;color:var(--ink);margin-bottom:2px}
 .product-row__benefit{font-size:.78rem;color:var(--ink-muted);line-height:1.5}
 .product-row__line{
@@ -797,15 +801,16 @@ a{text-decoration:none;color:inherit}
 
   var state = { screen:0, answers:{}, name:'', email:'' };
 
+  var IMG='https://images.tcdn.com.br/img/img_prod/764720/';
   var protocols = {
     beauty:{
       name:'Protocolo Pele e Beleza Ativa',
       tagline:'Ciência para quem cuida de dentro para fora',
       slug:'protocolo_beauty', coupon:'BEAUTY10',
       products:[
-        {name:'Colágeno Hidrolisado VERISOL\u00ae',benefit:'Firmeza e elasticidade da pele',line:'Beauty'},
-        {name:'HialuSkin Ácido Hialurônico 150mg',benefit:'Hidratação profunda',line:'Beauty'},
-        {name:'Biotina Plus',benefit:'Cabelo, pele e unhas',line:'Nutrition'}
+        {name:'Colágeno Hidrolisado VERISOL\u00ae',benefit:'Firmeza e elasticidade da pele',line:'Beauty',img:IMG+'180_colageno_hidrolisado_verisol_100_comprimidos_stem_33_1_5ba481296f4e36e0da0f46c18b65c984.jpg'},
+        {name:'HialuSkin Ácido Hialurônico 150mg',benefit:'Hidratação profunda',line:'Beauty',img:IMG+'180_hialuskin_acido_hialuronico_150mg_30_comprimidos_stem_131_1_fa25cced5a3826069b348f2474cba839.png'},
+        {name:'Biotina Plus',benefit:'Cabelo, pele e unhas',line:'Nutrition',img:IMG+'180_biotina_plus_60_comprimidos_stem_245_1_74afff6a355b9b3c1b74082547c45970.jpg'}
       ],
       moments:{A:'Tome com o café da manhã. 30 dias para sentir a diferença na textura da pele.',B:'Inclua na refeição principal. A absorção do colágeno é potencializada com vitamina C.',D:'Faça do momento noturno um ritual. Colágeno + hialurônico antes de dormir.',default:'Escolha um horário fixo por dia. Consistência é o que gera resultado.'},
       tags:['protocolo_beauty','cluster_nunca','origem_quiz','lead_qualificado']
@@ -815,9 +820,9 @@ a{text-decoration:none;color:inherit}
       tagline:'Suporte diário para quem não pode parar',
       slug:'protocolo_saude', coupon:'SAUDE10',
       products:[
-        {name:'Triple Ômega 3-6-9 1000mg',benefit:'Anti-inflamatório e saúde cardiovascular',line:'Nutrition'},
-        {name:'Zinco 29,59mg',benefit:'Defesa imunológica e energia celular',line:'Nutrition'},
-        {name:'Complexo B',benefit:'Suporte ao sistema nervoso e imunidade',line:'Nutrition'}
+        {name:'Triple Ômega 3-6-9 1000mg',benefit:'Anti-inflamatório e saúde cardiovascular',line:'Nutrition',img:IMG+'180_oleo_de_peixe_omega3_1000mg_120_capsulas_stem_149_1_6ca515b0199dd266d8180e2c77166de2.png'},
+        {name:'Zinco 29,59mg',benefit:'Defesa imunológica e energia celular',line:'Nutrition',img:IMG+'180_zinco_7mg_60_comprimidos_stem_1_20260331125846_967cf51c0d79.jpg'},
+        {name:'Complexo B',benefit:'Suporte ao sistema nervoso e imunidade',line:'Nutrition',img:IMG+'180_complexo_b_30_comprimidos_stem_1_20260210103511_6cf2c0f10f45.jpg'}
       ],
       moments:{A:'Com o café da manhã. Ômega 3 tem melhor absorção com gordura boa.',B:'Com o almoço ou jantar. Zinco é melhor absorvido longe de laticínios.',D:'À noite, o Complexo B apoia a recuperação enquanto você dorme.',default:'Qualquer refeição serve. O importante é criar o hábito.'},
       tags:['protocolo_saude','cluster_nunca','origem_quiz','lead_qualificado']
@@ -827,11 +832,10 @@ a{text-decoration:none;color:inherit}
       tagline:'Para quem treina com intenção e quer resultado real',
       slug:'protocolo_performance', coupon:'PERF10',
       products:[
-        {name:'Creatina em Pó',benefit:'Força, potência e recuperação muscular',line:'Performance'},
-        {name:'Cafeína TERMO 200mg',benefit:'Energia e foco antes do treino',line:'Performance'},
-        {name:'Triple Ômega 3-6-9 1000mg',benefit:'Anti-inflamação e recuperação pós-treino',line:'Nutrition'}
+        {name:'Creatina em Pó',benefit:'Força, potência e recuperação muscular',line:'Performance',img:IMG+'180_creatina_em_p_150_g_stem_1_20260210103547_d5e90fddf301.jpg'},
+        {name:'Triple Ômega 3-6-9 1000mg',benefit:'Anti-inflamação e recuperação pós-treino',line:'Nutrition',img:IMG+'180_oleo_de_peixe_omega3_1000mg_120_capsulas_stem_149_1_6ca515b0199dd266d8180e2c77166de2.png'}
       ],
-      moments:{C:'Cafeína 30min antes do treino. Creatina logo depois, com água. Ômega com a refeição.',A:'Creatina no café da manhã. Cafeína antes do treino. Ômega no almoço.',default:'Cafeína pré-treino, creatina pós-treino, ômega na refeição principal.'},
+      moments:{C:'Creatina logo após o treino, com água. Ômega com a refeição principal.',A:'Creatina no café da manhã. Ômega no almoço.',default:'Creatina pós-treino, ômega na refeição principal.'},
       tags:['protocolo_performance','cluster_nunca','origem_quiz','lead_qualificado']
     },
     longevidade:{
@@ -839,9 +843,9 @@ a{text-decoration:none;color:inherit}
       tagline:'Para quem pensa no longo prazo e quer continuar ativo',
       slug:'protocolo_longevidade', coupon:'LONG10',
       products:[
-        {name:'Coenzima Q10 e Colágeno',benefit:'Energia celular e saúde articular',line:'Clinical'},
-        {name:'Dimagnésio Malato + Vitamina K2 (MK-7)',benefit:'Ossos, músculos e mobilidade',line:'Clinical'},
-        {name:'Óleo de Linhaça 1000mg',benefit:'Saúde cardiovascular e anti-inflamação',line:'Nutrition'}
+        {name:'Coenzima Q10 e Colágeno',benefit:'Energia celular e saúde articular',line:'Clinical',img:IMG+'180_coenzima_q10_200mg_30_comprimidos_stem_213_1_257622e4521c28cfbe1aa06977afbb15.png'},
+        {name:'Dimagnésio Malato + Vitamina K2 (MK-7)',benefit:'Ossos, músculos e mobilidade',line:'Clinical',img:IMG+'180_dimagnesio_malato_vitamina_k2_60_comprimidos_stem_87_1_b16b4ff7d67853447df1c679ea8b32e8.png'},
+        {name:'Óleo de Linhaça 1000mg',benefit:'Saúde cardiovascular e anti-inflamação',line:'Nutrition',img:IMG+'180_oleo_de_linhaca_1000mg_60_capsulas_stem_117_1_d95017a2778d4e68208e3c2663ce8248.jpg'}
       ],
       moments:{A:'Com o café da manhã. Q10 tem melhor absorção com refeição gordurosa.',B:'Com o almoço ou jantar. Todos esses ativos se beneficiam da refeição.',D:'Dimagnésio à noite potencializa o sono e a recuperação muscular.',default:'Distribua ao longo do dia. Q10 pela manhã, magnésio à noite.'},
       tags:['protocolo_longevidade','cluster_nunca','origem_quiz','lead_qualificado']
@@ -966,9 +970,9 @@ a{text-decoration:none;color:inherit}
     var moment=protocol.moments[p5]||protocol.moments.default;
     var p1Label=p1Labels[state.answers.p1]||'sua rotina';
 
-    var productsHTML=protocol.products.map(function(p,i){
+    var productsHTML=protocol.products.map(function(p){
       return '<div class="product-row">'+
-        '<div class="product-row__dot product-row__dot--'+(i+1)+'"></div>'+
+        '<div class="product-row__img"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"></div>'+
         '<div><div class="product-row__name">'+p.name+'</div>'+
         '<div class="product-row__benefit">'+p.benefit+'</div>'+
         '<span class="product-row__line">'+p.line+'</span></div></div>';
